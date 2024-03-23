@@ -1,7 +1,40 @@
-<form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input type="submit" value="Submit">
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Atrix Protocol</title>
+
+	
+
+</head>
+
+<body>
+<div id="main">
+<h1>Atrix Protocol Wallet</h1>
+<button id="start">start</button>
+</div>
+<form id="form">
+<input type="text" placeholder="address" id="address">
+<input type="text" placeholder="amount" id="amount">
+<button id="send">send</button>
 </form>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+let tg = window.Telegram.WebApp;
+let start = document.getElementById("start")
+let send = document.getElementById("send")
+start.addEventListener("click", () => {
+  document.getElementById("main").style.display = "none";
+  document.getElementById("form").style.display = "block";
+})
+send.addEventListener("click", () => {
+  tg.close();
+})
+</script>
+</body>
+
+</html>
