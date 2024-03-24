@@ -43,10 +43,30 @@
       background-color: #000000;
       color: #ffffff;
       outline: none;
-    }
+    }.input-wrapper {
+    position: relative;
+    margin: 20px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black; /* Змінюємо колір рамки на чорний */
+    border-radius: 10px; /* Заокруглюємо краї */
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
   .btn:focus{
     outline: none;
   }
+
+  
+  
 </style>
 </head>
 <body>
@@ -57,5 +77,8 @@
   <a class="btn">send</a>
 </div>
 
+<div class="input-wrapper">
+  <input type="text" id="inputField" placeholder="Введіть інформацію">
+</div>
 </body>
 </html>
