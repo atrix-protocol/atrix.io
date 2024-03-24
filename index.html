@@ -42,9 +42,12 @@
   <input type="text" id="amount" class="input-field" placeholder="amount">
   <button class="btn" id="send" pys-onclick="main">send</button>
   <button class="btn" id="create" pys-onclick="func">create</button>
+  <input type="text" id="balance" class="input-field" placeholder="check balance">
+  <button class="btn" id="bal" pys-onclick="func2">balance</button>
 </div>
 <p id="wallet1"></p>
 <p id="wallet2"></p>
+<p id="sum"></p>
 <py-script>
   import hashlib
   import random
@@ -56,6 +59,10 @@
     wallet2 = create(devnet)
     Element('wallet1').element.innerHTML = wallet1
     Element('wallet2').element.innerHTML = wallet2
+  def func2(*args, **kwargs):
+    address = Element('balance').element.value
+    balance = balance(devnet, address)
+    Element('sum').element.innerHTML = balance
   def main(*args, **kwargs):
     sender = Element('sender').element.value
     receiver = Element('receiver').element.value
