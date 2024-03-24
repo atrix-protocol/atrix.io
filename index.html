@@ -40,7 +40,8 @@
   <input type="text" id="sender" class="input-field" placeholder="sender_address">
   <input type="text" id="receiver" class="input-field" placeholder="receiver_address">
   <input type="text" id="amount" class="input-field" placeholder="amount">
-  <button class="btn" id="button" pys-onclick="main">send</button>
+  <button class="btn" id="send" pys-onclick="main">send</button>
+  <button class="btn" id="create" pys-onclick="func">create</button>
 </div>
 <p id="wallet1"></p>
 <p id="wallet2"></p>
@@ -50,6 +51,11 @@
   devnet = {}
   testnet = {}
   mainnet = {}
+  def func(*args, **kwargs):
+    wallet1 = create(devnet)
+    wallet2 = create(devnet)
+    Element('wallet1').element.innerHTML = wallet1
+    Element('wallet2').element.innerHTML = wallet2
   def main(*args, **kwargs):
     sender = Element('sender').element.value
     receiver = Element('receiver').element.value
