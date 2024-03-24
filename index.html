@@ -1,93 +1,17 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atrix Protocol Network</title>
-<style>
-  body {
-    background-color: white;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-  }
-  p {
-    text-align: justify;
-  }
-  .btn {
-    display: inline-block;
-    background-color: white;
-    color: black;
-    padding: 15px 40px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.1s, color 0.1s;
-    user-select: none;
-    
-  }
-  
-  .btn:active{
-      background-color: #000000;
-      color: #ffffff;
-      outline: none;
-    }.input-wrapper {
-    position: relative;
-    margin: 20px;
-  }
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid black; /* Змінюємо колір рамки на чорний */
-    border-radius: 10px; /* Заокруглюємо краї */
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-
-  input[type="text"]:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  .btn:focus{
-    outline: none;
-  }
-
-  
-  
-</style>
-<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
-<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-</head>
-<body>
-
-<div class="container">
-  <h1></h1>
-  <p></p>
-  <a class="btn">send</a>
-</div>
-
-<div class="input-wrapper">
-  <input type="text" id="inputField" placeholder="address">
-</div>
-
-<py-script> 
-  import random
-  import hashlib
-  print('atrix wallet') 
-</py-script>
-
-</body>
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+      <py-script> print('Now you can!') </py-script>
+  </body>
 </html>
