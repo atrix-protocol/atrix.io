@@ -37,12 +37,13 @@
 <body>
 
 <div class="container">
-  <input type="text" id="test-input1" class="input-field" placeholder="address">
-  <input type="text" id="test-input2" class="input-field" placeholder="amount">
-  <button class="btn" id="button_send" pys-onclick="main">send</button>
+  <input type="text" id="sender" class="input-field" placeholder="sender_address">
+  <input type="text" id="receiver" class="input-field" placeholder="receiver_address">
+  <input type="text" id="amount" class="input-field" placeholder="amount">
+  <button class="btn" id="button" pys-onclick="main">send</button>
 </div>
-<p id="output1"></p>
-<p id="output2"></p>
+<p id="wallet1"></p>
+<p id="wallet2"></p>
 <py-script>
   import hashlib
   import random
@@ -50,8 +51,10 @@
   testnet = {}
   mainnet = {}
   def main(*args, **kwargs):
-    text1 = Element('test-input1').element.value
-    text2 = Element('test-input2').element.value
+    sender = Element('sender').element.value
+    receiver = Element('receiver').element.value
+    amount = Element('amount').element.value
+    transaction(devnet, sender, receiver, amount)
     #Element('output1').element.innerHTML = text1
   def transaction(network, send_address, receive_address, amount):
     val = float(amount)
