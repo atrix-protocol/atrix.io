@@ -50,6 +50,9 @@
 <py-script>
   import hashlib
   import random
+  import sqlite3
+  conn = sqlite3.connect('mydatabase.db')
+  cursor = conn.cursor()
   devnet = {}
   testnet = {}
   mainnet = {}
@@ -84,9 +87,20 @@
       var = 0.00
       return var
 
+  def balance_sql(address):
+      value = get_value_by_key(address)
+      if value:
+        return value
+      else:
+        return 0
+    
   def create_wallet(network):
     address = generate_hash()
     network[address] = 0.75
+    new_data = (address, 0.70)
+    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", new_data)
+    conn.commit()
+    comn.close()
     return address
 
   def generate_hash():
@@ -100,7 +114,16 @@
     hash_object.update(data)
     hash = hash_object.hexdigest()
     return hash
-  
+
+  def get_value_by_key(key):
+    conn = sqlite3.connect('mydatabase.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT value FROM mytable WHERE key = ?", (key,))
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result else None
+
+      
 </py-script>
 
 </body>
