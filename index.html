@@ -55,10 +55,10 @@
   testnet = {}
   mainnet = {}
   def func(*args, **kwargs):
-    wallet1 = create(devnet)
-    wallet2 = create(devnet)
-    Element('wallet1').element.innerHTML = wallet1
-    Element('wallet2').element.innerHTML = wallet2
+    Element('wallet1').element.innerHTML = create(devnet)
+    Element('wallet2').element.innerHTML = create(devnet)
+    print(create(devnet))
+    print(create(devnet))
   def func2(*args, **kwargs):
     address = Element('balance').element.value
     balance = balance(devnet, address)
