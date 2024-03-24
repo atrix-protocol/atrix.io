@@ -59,8 +59,8 @@
     
   def func2(*args, **kwargs):
     address = Element('balance').element.value
-    balance = str(balance(devnet, address))
-    Element('wallet1').element.innerHTML = balance
+    balanc = balance(devnet, address)
+    print("balanc")
   def main(*args, **kwargs):
     sender = Element('sender').element.value
     receiver = Element('receiver').element.value
