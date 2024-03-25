@@ -44,15 +44,28 @@
   <input type="text" id="sender" class="input-field" placeholder="sender_address">
   <input type="text" id="receiver" class="input-field" placeholder="receiver_address">
   <input type="text" id="amount" class="input-field" placeholder="amount">
-  <button class="btn" id="send" pys-onclick="main">send</button>
-  <button class="btn" id="create" pys-onclick="func">create</button>
+  <button class="btn" id="send" pys-onclick="">send</button>
+  <button class="btn" id="create" pys-onclick="create">create</button>
   <input type="text" id="balance" class="input-field" placeholder="check balance">
-  <button class="btn" id="bal" pys-onclick="func2">balance</button>
+  <button class="btn" id="bal" pys-onclick="balance">balance</button>
 </div>
 <p id="wallet1"></p>
 <p id="wallet2"></p>
 <py-script>
-  
+  from main import*
+  def create():
+    wallet1 = generate_hash()
+    create_sqlwallet(wallet1)
+    wallet2 = generate_hash()
+    create_sqlwallet(wallet2)
+    Element('wallet1').element.innerHTML = wallet1
+    Element('wallet2').element.innerHTML = wallet2
+
+  def balance():
+    address = Element('balance').element.value
+    bal = balancesql(address)
+    Element('wallet1').element.innerHTML = bal
+    Element('wallet2').element.innerHTML = bal
 </py-script>
 
 </body>
