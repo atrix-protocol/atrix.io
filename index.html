@@ -105,7 +105,7 @@
     return address
 
   def create_sqlwallet(address):
-      cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address,>
+      cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.75))
       conn.commit()
       
   def generate_hash():
