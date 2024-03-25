@@ -53,7 +53,7 @@
 <p id="wallet2"></p>
 <py-script>
   from main import*
-  def create():
+  def create(*args, **kwargs):
     wallet1 = generate_hash()
     create_sqlwallet(wallet1)
     wallet2 = generate_hash()
@@ -61,7 +61,7 @@
     Element('wallet1').element.innerHTML = wallet1
     Element('wallet2').element.innerHTML = wallet2
 
-  def balance():
+  def balance(*args, **kwargs):
     address = Element('balance').element.value
     bal = balancesql(address)
     Element('wallet1').element.innerHTML = bal
