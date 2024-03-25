@@ -4,9 +4,9 @@ import sqlite3
 conn = sqlite3.connect('mydatabase.db')
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS mytable (key TEXT PRIMARY KEY, value REAL)''')
-devnet = {}
-testnet = {}
-mainnet = {}
+#devnet = {}
+#testnet = {}
+#mainnet = {}
 #def func(*args, **kwargs):
 #  w1 = create_wallet(devnet)
 #  create_sqlwallet(w1)
@@ -27,15 +27,15 @@ mainnet = {}
 #    amount = Element('amount').element.value
 #    transaction(devnet, sender, receiver, amount)
  #   #Element('output1').element.innerHTML = text1
-  def transaction(network, send_address, receive_address, amount):
-    val = float(amount)
-    if(network[send_address] >= val and val >= 0.01):
-      network[send_address] -= val
-      network[receive_address] += val
-    elif(network[send_address] < val or val < 0.01):
-      print("transaction can't be done -> low balance")
-    else:
-      print("transaction error")
+  #def transaction(network, send_address, receive_address, amount):
+  #  val = float(amount)
+  #  if(network[send_address] >= val and val >= 0.01):
+  #    network[send_address] -= val
+ #     network[receive_address] += val
+ #   elif(network[send_address] < val or val < 0.01):
+#      print("transaction can't be done -> low balance")
+#    else:
+#      print("transaction error")
 
 ##  def balance(network, address):
 ##    if(address in network):
