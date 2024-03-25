@@ -99,8 +99,7 @@
   def create_wallet(network):
     address = generate_hash()
     network[address] = 0.75
-    new_data = (address, 0.70)
-    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", new_data)
+    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.70))
     conn.commit()
     comn.close()
     return address
