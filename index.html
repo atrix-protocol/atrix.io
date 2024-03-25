@@ -55,8 +55,10 @@
   testnet = {}
   mainnet = {}
   def func(*args, **kwargs):
-    Element('wallet1').element.innerHTML = create_wallet(devnet)
-    Element('wallet2').element.innerHTML = create_wallet(devnet)
+    wallet = create_wallet(devnet)
+    Element('wallet1').element.innerHTML = wallet
+    create_sqlwallet(wallet)
+    Element('wallet2').element.innerHTML = wallet
     
   def func2(*args, **kwargs):
     address = Element('balance').element.value
@@ -97,11 +99,12 @@
   def create_wallet(network):
     address = generate_hash()
     network[address] = 0.75
-    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.70))
-    conn.commit()
-    comn.close()
     return address
 
+  def create_sqlwallet(address):
+      cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.70))
+      comn.commit()
+      comn.close()
   def generate_hash():
     string_random = ""
     for i in range(100):
