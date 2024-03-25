@@ -53,9 +53,9 @@
 <p id="wallet1"></p>
 <p id="wallet2"></p>
 <py-script>
-  from main import create_sqlwallet
-  from main import generate_hash
-  from main import balancesql
+  from mainpy import create_sqlwallet
+  from mainpy import generate_hash
+  from mainpy import balancesql
   pyscript.write('wallet1', generate_hash())
   def create(*args, **kwargs):
     wallet1 = generate_hash()
