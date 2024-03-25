@@ -51,15 +51,15 @@
   import hashlib
   import random
   import sqlite3
-  import sql
+  conn = sqlite3.connect('mydatabase.db')
+  cursor = conn.cursor()
   devnet = {}
   testnet = {}
   mainnet = {}
   def func(*args, **kwargs):
-    wallet = create_wallet(devnet)
-    Element('wallet1').element.innerHTML = wallet
-    create_sqlwallet(wallet)
-    Element('wallet2').element.innerHTML = wallet
+    create_wallet(devnet)
+    Element('wallet1').element.innerHTML = create_wallet(devnet)
+    Element('wallet2').element.innerHTML = create_wallet(devnet)
     
   def func2(*args, **kwargs):
     address = Element('balance').element.value
@@ -91,21 +91,20 @@
       return var
 
   def balance_sql(address):
-      value = get_value_by_key(address)
-      if value:
-        return value
-      else:
-        return 0
+    cursor.execute("SELECT value FROM mytable WHERE key=?", (address,))
+    result = cursor.fetchone()
+    if result:
+      return result[0]
+    else:
+      return 0
     
   def create_wallet(network):
     address = generate_hash()
     network[address] = 0.75
+    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.75))
+    comn.commit()
     return address
-
-  def create_sqlwallet(address):
-      cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.70))
-      comn.commit()
-      comn.close()
+      
   def generate_hash():
     string_random = ""
     for i in range(100):
@@ -118,13 +117,7 @@
     hash = hash_object.hexdigest()
     return hash
 
-  def get_value_by_key(key):
-    conn = sqlite3.connect('mydatabase.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT value FROM mytable WHERE key = ?", (key,))
-    result = cursor.fetchone()
-    conn.close()
-    return result[0] if result else None
+  conn.close()
 
       
 </py-script>
