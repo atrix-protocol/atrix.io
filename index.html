@@ -61,8 +61,8 @@
     Element('wallet1').element.innerHTML = w1
     create_sqlwallet(w1)
     w2 = create_wallet(devnet)
-    create_sqlwallet(w2)
     Element('wallet2').element.innerHTML = w2
+    create_sqlwallet(w2)
     
   def func2(*args, **kwargs):
     address = Element('balance').element.value
