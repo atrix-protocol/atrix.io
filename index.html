@@ -69,7 +69,7 @@
     address = Element('balance').element.value
     balanc1 = balance(devnet, address)
     Element('wallet1').element.innerHTML = balanc1
-    balanc2 = create_sqlwallet(address)
+    balanc2 = balancesql(address)
     Element('wallet2').element.innerHTML = balanc2
   def main(*args, **kwargs):
     sender = Element('sender').element.value
