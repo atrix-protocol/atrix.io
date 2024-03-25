@@ -66,7 +66,7 @@
     address = Element('balance').element.value
     balanc1 = balance(devnet, address)
     Element('wallet1').element.innerHTML = balanc1
-    balanc2 = balance_sql(address)
+    balanc2 = create_sqlwallet(address)
     Element('wallet2').element.innerHTML = balanc2
   def main(*args, **kwargs):
     sender = Element('sender').element.value
@@ -102,9 +102,11 @@
   def create_wallet(network):
     address = generate_hash()
     network[address] = 0.75
-    cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address, 0.75))
-    comn.commit()
     return address
+
+  def create_sqlwallet(address):
+      cursor.execute("INSERT INTO mytable (key, value) VALUES (?, ?)", (address,>
+      conn.commit()
       
   def generate_hash():
     string_random = ""
